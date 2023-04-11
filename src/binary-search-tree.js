@@ -71,8 +71,8 @@ class BinarySearchTree {
     if (targetElement === null) {
       return;
     }
-    var parrent = this.findParrent(dataToRemove);
-    if (parrent === null) {
+    var parent = this.findParent(dataToRemove);
+    if (parent === null) {
       this.rootElement = targetElement.left;
       var leftSide = targetElement.left;
       if (leftSide === null) {
@@ -90,11 +90,11 @@ class BinarySearchTree {
       }
     }
 
-    if (targetElement == parrent.left) {
-      parrent.left = targetElement.left;
+    if (targetElement == parent.left) {
+      parent.left = targetElement.left;
       var leftSide = targetElement.left;
       if (leftSide === null) {
-        parrent.left = targetElement.right;
+        parent.left = targetElement.right;
         return;
       }
       while (true) {
@@ -107,11 +107,11 @@ class BinarySearchTree {
         }
       }
     }
-    if (targetElement == parrent.right) {
-      parrent.right = targetElement.left;
+    if (targetElement == parent.right) {
+      parent.right = targetElement.left;
       var leftSide = targetElement.left;
       if (leftSide === null) {
-        parrent.right = targetElement.right;
+        parent.right = targetElement.right;
         return;
       }
       while (true) {
@@ -126,7 +126,7 @@ class BinarySearchTree {
     }
   }
 
-  findParrent(data) {
+  findParent(data) {
     if (this.find(data) === null) {
       return null;
     }
